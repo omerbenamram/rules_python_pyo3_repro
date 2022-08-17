@@ -1,0 +1,8 @@
+build --enable_platform_specific_config
+
+# On macOS we generally want to use clang
+build:macos --copt=-Wno-error
+build:macos --cxxopt=-std=c++17
+build:macos --repo_env=BAZEL_LINKOPTS="-fuse-ld=/opt/homebrew/opt/llvm/bin/ld64.lld"
+build:macos --action_env=PATH=/usr/bin:/bin:/opt/homebrew/bin:/usr/local/bin:/opt/local/bin
+build:macos --host_action_env=PATH=/usr/bin:/bin:/opt/homebrew/bin:/usr/local/bin:/opt/local/bin
